@@ -138,6 +138,7 @@ public class 两数相加 {
                 temp3.val = sum;
                 iOver10 = 0;
             }
+
             //将计算结果临时存放在temp.next中，并使temp指向temp.next;
             temp.next = temp3;
             //下面这行代码等同于temp = temp.next;
