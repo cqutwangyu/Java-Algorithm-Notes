@@ -1,7 +1,7 @@
 package LeetCode125;
 
 /**
- * @ClassName Main
+ * @ClassName 奇特的栈
  * @Description 力扣第125场周赛主程序
  * @Author ChongqingWangYu
  * @DateTime 2019/2/24 10:18
