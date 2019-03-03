@@ -33,6 +33,11 @@ public class 岛屿的个数 {
         System.out.println(numIslands(arr));
     }
 
+    /**
+     * 将一块岛屿的延伸部分删除，变为0，避免第再次扫到同一个岛屿
+     * @param grid
+     * @return
+     */
     public static int numIslands(char[][] grid) {
         int count = 0;
         boolean isJoined = false;
