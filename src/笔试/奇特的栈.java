@@ -1,4 +1,4 @@
-package 笔试.科大讯飞;
+package 笔试;
 
 import java.util.ArrayList;
 import java.util.List;
