@@ -15,6 +15,12 @@ public class Z字形变换 {
         System.out.println(convert("PAYPALISHIRINGGDGADSGDASGAGDSAG", 6));
     }
 
+    /**
+     * 我的解法
+     * @param s
+     * @param numRows
+     * @return
+     */
     public static String convert(String s, int numRows) {
         int n = s.length();
         System.out.println(n);
