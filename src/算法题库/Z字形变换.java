@@ -28,7 +28,7 @@ public class Z字形变换 {
             return s;
         }
         char[] chars = s.toCharArray();
-        char[][] arrs = new char[numRows][n];
+        char[][] arrs = new char[numRows][n/2+1];
         //行
         int x = 0;
         //列
@@ -55,7 +55,7 @@ public class Z字形变换 {
         int index = 0;
         int maxj = 0;
         for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < arrs[i].length; j++) {
                 //未赋值的char为'\0'，跳过
                 if (arrs[i][j] != '\0') {
                     //将结果存入chars中
