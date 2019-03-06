@@ -18,6 +18,7 @@ public class 整数反转 {
             if (x > 0) {
                 return reverseInt(x);
             } else {
+                //将负数转为正数传入，将得到的结果转为负数并返回。
                 return 0 - reverseInt(-x);
             }
         }
@@ -28,6 +29,7 @@ public class 整数反转 {
             while (n > 0) {
                 pop = n % 10;
                 n /= 10;
+                //如果溢出则直接返回0
                 if (rev > Integer.MAX_VALUE / 10) {
                     return 0;
                 }
