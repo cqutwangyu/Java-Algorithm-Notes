@@ -1,7 +1,6 @@
 package 算法题库;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -13,6 +12,7 @@ import java.util.Scanner;
  */
 public class 构造回文 {
     public static void main(String[] args) {
+        //123221
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             String s1 = sc.next();
@@ -22,9 +22,20 @@ public class 构造回文 {
             int[][] dp = new int[s1.length() + 1][s2.length() + 1];
             for (int i = 1; i < dp.length; i++) {
                 for (int j = 1; j < dp[0].length; j++) {
-                    dp[i][j] = s1.charAt(i - 1) == s2.charAt(j - 1) ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
+//                    dp[i][j] = s1.charAt(i - 1) == s2.charAt(j - 1) ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                        //如果s1的第i位和s2的第j位相等，则构成回文，回文长度累加1
+                        dp[i][j] = dp[i - 1][j - 1] + 1;
+                    } else {
+                        //否则
+                        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    }
                 }
             }
+//            for (int i = 0; i < dp.length; i++) {
+//                System.out.println(Arrays.toString(dp[i]));
+//            }
+            //总长度减去最长的构造回文长度等于需要删除的字符数
             System.out.println(s1.length() - dp[s1.length()][s2.length()]);
         }
     }
