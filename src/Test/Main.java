@@ -9,15 +9,8 @@ package Test;
  */
 public class Main {
     public static void main(String[] args) {
-        Integer a = 127;
-        Integer b = 127;
-        Integer a1 = 128;
-        Integer b1 = 128;
-        Integer a3 = new Integer(127);
-        Integer b3 = new Integer(127);
-        System.out.println(a == b);
-        System.out.println(a1 == b1);
-        System.out.println(a3 == b3);
-        System.out.println(a == a3);
+        char a = '9';
+        int b = a - '0';
+        System.out.println(b);
     }
 }

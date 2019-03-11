@@ -44,6 +44,12 @@ public class 最长公共前缀 {
         return strs[0].substring(0, index);
     }
 
+    /**
+     * 最优解
+     *
+     * @param strs
+     * @return
+     */
     public static String longestCommonPrefix1(String[] strs) {
         //如果strs为空，返回字符串空
         String str = "";
