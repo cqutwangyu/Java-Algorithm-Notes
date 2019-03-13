@@ -56,6 +56,7 @@ public class 快速排序 {
     private static int partition(int[] a, int low, int high) {
         int pivotloc = a[low];
         int temp;
+
         while (low < high) {
             //循环直到找到第一个小的值
             while (low < high && a[high] >= pivotloc) {
