@@ -1,4 +1,4 @@
-package 算法题库;
+package 笔试真题;
 
 import java.util.Scanner;
 

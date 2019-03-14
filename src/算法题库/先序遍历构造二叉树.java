@@ -46,7 +46,6 @@ public class 先序遍历构造二叉树 {
         TreeNode right;
         //左子树值大于node.val
         TreeNode left;
-
         TreeNode(int x) {
             val = x;
         }
