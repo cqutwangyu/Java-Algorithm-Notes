@@ -9,7 +9,7 @@ package 剑指offer;
  */
 public class 变态跳台阶 {
     public static void main(String[] args) {
-        System.out.println(JumpFloorII(10));
+        System.out.println(JumpFloorII(20));
     }
 
     /**
@@ -21,14 +21,14 @@ public class 变态跳台阶 {
      */
     public static int JumpFloorII(int target) {
         //究极解法，用位移
-//        return 1<<(target-1);
-        if (target == 0) {
-            return -1;
-        }
-        if (target == 1) {
-            return 1;
-        }
-        return 2 * JumpFloorII(target - 1);
+        return 1 << (target - 1);
+//        if (target == 0) {
+//            return -1;
+//        }
+//        if (target == 1) {
+//            return 1;
+//        }
+//        return 2 * JumpFloorII(target - 1);
     }
 
 }
