@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class 跳台阶 {
     public static void main(String[] args) {
-        int n = 30;
+        int n = 10;
         long start = System.currentTimeMillis();
         System.out.println(JumpFloor_3(n));
         System.out.println(System.currentTimeMillis() - start);
@@ -68,8 +68,17 @@ public class 跳台阶 {
         int f = 1;
         int g = 1;
         while (n-- > 0) {
+            /**
+             * g=1;g+f=2;->g=2;g+f=3;->g=3;g+f=5;
+             * f=1;g-f=1;->f=1;g-f=2;->f=2;g-f=3;
+             */
+//            System.out.println("g=" + g + "+" + f);
+            //当前阶的方法数=上一阶+当前阶
             g = g + f;
+//            System.out.println("g:" + g);
+            //上一阶的方法数=当前阶-上一阶
             f = g - f;
+//            System.out.println("f:" + f);
         }
         return f;
     }

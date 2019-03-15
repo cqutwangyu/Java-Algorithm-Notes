@@ -9,7 +9,7 @@ package 剑指offer;
  */
 public class 变态跳台阶 {
     public static void main(String[] args) {
-        System.out.println(JumpFloorII(20));
+        System.out.println(JumpFloorII(4));
     }
 
     /**
