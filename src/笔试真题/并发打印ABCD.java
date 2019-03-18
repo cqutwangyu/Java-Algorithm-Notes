@@ -1,4 +1,4 @@
-package 测试案例;
+package TestTemplate;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

@@ -1,7 +1,7 @@
-package 测试案例;
+package TestTemplate;
 
 /**
- * @ClassName 测试案例
+ * @ClassName TestTemplate
  * @Description
  * @Author ChongqingWangYu
  * @DateTime 2019/3/12 22:27
