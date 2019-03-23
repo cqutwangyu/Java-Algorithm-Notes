@@ -41,12 +41,12 @@ public class 先序遍历构造二叉树 {
     }
 
     public static class TreeNode {
-        int val;
+        public int val;
         //左子树值小于node.val
-        TreeNode right;
+        public TreeNode right;
         //左子树值大于node.val
-        TreeNode left;
-        TreeNode(int x) {
+        public TreeNode left;
+        public TreeNode(int x) {
             val = x;
         }
     }

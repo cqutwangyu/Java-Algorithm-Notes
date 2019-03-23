@@ -2,6 +2,10 @@ package AlgorithmBased;
 
 import LogarithmicDetector.IntArrays;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+
 /**
  * @ClassName MySort
  * @Description 排序算法集合
@@ -136,10 +140,57 @@ public class MySort {
     }
 
     /**
-     * 快速排序
+     * 快速排序入口
      */
     public static void quickSort(int[] arr) {
-        return;
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+    /**
+     * 快排递归程序
+     */
+    private static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            //取一个枢轴（中心点）
+            int pivot = partition(arr, left, right);
+            //小于pivot部分排序
+            quickSort(arr, left, pivot - 1);
+            //大于pivot部分排序
+            quickSort(arr, pivot, right);
+        }
+    }
+
+    /**
+     * 划分排序
+     * 小于等于pivot的放左边，大于pivot的放右边
+     */
+    private static int partition(int[] arr, int left, int right) {
+        //待排序范围的中轴
+        int mid = (left + right) / 2;
+        //中轴的值
+        int pivot = arr[mid];
+        //没有越界
+        while (left <= right) {
+            //从左往右找到大于等于pivot的值
+            while (arr[left] < pivot) {
+                ++left;
+            }
+            //从右往左找到小于等于pivot的值
+            while (pivot < arr[right]) {
+                --right;
+            }
+            //没有越界
+            if (left <= right) {
+                //小于等于pivot的放左边，大于pivot的放右边
+                swap(arr, left, right);
+                ++left;
+                --right;
+            }
+        }
+        return left;
     }
 
     /**
