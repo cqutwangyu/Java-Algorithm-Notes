@@ -136,7 +136,6 @@ public class MySort {
         for (int j = 0; j < help.length; j++) {
             arr[L + j] = help[j];
         }
-        IntArrays.printArray(arr);
     }
 
     /**
@@ -191,6 +190,70 @@ public class MySort {
             }
         }
         return left;
+    }
+
+    /**
+     * 堆排序
+     */
+    public static void heapSrot(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        //0~i的位置形成大根堆
+        for (int i = 0; i < arr.length; i++) {
+            heapInsert(arr, i);
+        }
+        //0~heapSize为大根堆的有效区域
+        int heapSize = arr.length;
+        //将堆顶的最大值，放到数组最后
+        swap(arr, 0, --heapSize);
+        while (heapSize > 0) {
+            //将被改变后的堆，重新形成大根堆
+            heapify(arr, 0, heapSize);
+            //将堆顶的最大值放到大根堆有效范围的最后一个位置
+            swap(arr, 0, --heapSize);
+        }
+    }
+
+    /**
+     * 形成大根堆，堆的存储结构为数组
+     * 父节点：(i-1)/2
+     * 左孩子：i*2+1
+     * 右孩子：i*2+2
+     */
+    private static void heapInsert(int[] arr, int i) {
+        //如果当前数比其根节点大，则与根节点交换，直到不大于根节点，形成大根堆
+        while (arr[i] > arr[(i - 1) / 2]) {
+            swap(arr, i, (i - 1) / 2);
+            i = (i - 1) / 2;
+        }
+    }
+
+    /**
+     * 堆调整
+     *
+     * @param arr
+     * @param i        当前数下标
+     * @param heapSize 大根堆的有效区域
+     */
+    private static void heapify(int[] arr, int i, int heapSize) {
+        //左孩子（left+1为右孩子）
+        int left = i * 2 + 1;
+        while (left < heapSize) {
+            //如果存在右孩子，则取左右孩子之间的最大值下标
+            int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
+            //最大的子节点值与根节点的值取最大值下标
+            largest = arr[largest] > arr[i] ? largest : i;
+            //如果根节点值是最大，则不交换
+            if (largest == i) {
+                break;
+            }
+            //如果子节点比根节点大，则交换
+            swap(arr, largest, i);
+            //交换后更新根节点和左孩子的下标
+            i = largest;
+            left = i * 2 + 1;
+        }
     }
 
     /**

@@ -13,14 +13,14 @@ import java.util.Arrays;
  */
 public class IntArrays {
     public static void main(String[] args) {
-        int testTime = 5000;
-        int maxSize = 10;
-        int maxValue = 10;
+        int testTime = 1;
+        int maxSize = 100000;
+        int maxValue = 10000;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int arr1[] = generateRandomArray(maxSize, maxValue);
             int arr2[] = copyArray(arr1);
-            MySort.quickSort(arr1);
+            MySort.heapSrot(arr1);
             Arrays.sort(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
