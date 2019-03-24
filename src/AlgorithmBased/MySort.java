@@ -64,6 +64,9 @@ public class MySort {
 
     /**
      * 插入排序
+     * 常数量小于60，插入排序性能最优
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
      */
     public static void insertSort(int[] arr) {
         if (arr == null || arr.length < 2) {
@@ -85,6 +88,8 @@ public class MySort {
 
     /**
      * 归并排序入口
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n)     使用内部缓存法可使空间复杂度变为O(1)，相当复杂
      */
     public static void mergerSort(int[] arr) {
         if (arr == null || arr.length < 2) {
