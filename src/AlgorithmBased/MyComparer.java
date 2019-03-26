@@ -2,6 +2,8 @@ package AlgorithmBased;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.TreeSet;
 
 /**
  * @ClassName MyComparer
@@ -17,8 +19,21 @@ public class MyComparer {
         Student student3 = new Student("C", 3, 25);
         Student[] students = {student3, student1, student2};
         printStudents(students);
+
         Arrays.sort(students, new IdAscendingComparator());
         printStudents(students);
+
+        //优先队列 堆结构，传入对象时需要提供比较器
+        PriorityQueue<Student> heap = new PriorityQueue<>(new IdAscendingComparator());
+        heap.add(student3);
+        heap.add(student2);
+        heap.add(student1);
+        while (!heap.isEmpty()) {
+            Student student = heap.poll();
+            System.out.println(student.toString());
+        }
+        TreeSet<Student> treeSet = new TreeSet<>(new IdAscendingComparator());
+
     }
 
     private static void printStudents(Student[] students) {
@@ -26,6 +41,7 @@ public class MyComparer {
         for (Student s : students) {
             System.out.println(s.toString());
         }
+        System.out.println("===========");
     }
 
     private static class IdAscendingComparator implements Comparator<Student> {

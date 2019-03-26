@@ -168,7 +168,7 @@ public class MySort {
     }
 
     /**
-     * 划分排序
+     * 快排划分程序
      * 小于等于pivot的放左边，大于pivot的放右边
      */
     private static int partition(int[] arr, int left, int right) {
