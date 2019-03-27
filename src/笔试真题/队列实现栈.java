@@ -37,36 +37,6 @@ public class 队列实现栈 {
         Queue<Integer> q = new LinkedList<>();
         Queue<Integer> help = new LinkedList<>();
 
-        /**
-         * 弹出
-         */
-        public int pop() {
-            //两个栈都为空，则没有元素可以弹出，抛异常
-            if (q.isEmpty() && help.isEmpty()) {
-                try {
-                    throw new Exception("satck is empty!");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            //如果q为空，help不为空，将help中元素依次放入q，并弹出
-            if (q.isEmpty()) {
-                while (help.size() > 1) {
-                    q.add(help.poll());
-                }
-                return help.poll();
-            }
-
-            //如果help为空，q不为空，将q中元素依次放入help，并弹出
-            if (help.isEmpty()) {
-                while (q.size() > 1) {
-                    help.add(q.poll());
-                }
-                return q.poll();
-            }
-            return (Integer) null;
-        }
 
         /**
          * 压入
@@ -88,6 +58,34 @@ public class 队列实现栈 {
         }
 
         /**
+         * 弹出
+         */
+        public int pop() {
+            //两个栈都为空，则没有元素可以弹出，抛异常
+            if (q.isEmpty() && help.isEmpty()) {
+                try {
+                    throw new Exception("satck is empty!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+
+                //如果q为空，help不为空，将help中元素依次放入q，并弹出
+                if (q.isEmpty()) {
+                    dao(help, q);
+                    return help.poll();
+                }
+
+                //如果help为空，q不为空，将q中元素依次放入help，并弹出
+                if (help.isEmpty()) {
+                    dao(q, help);
+                    return q.poll();
+                }
+            }
+            return -1;
+        }
+
+        /**
          * 返回栈顶值，但不弹出
          */
         public int peek() {
@@ -99,26 +97,36 @@ public class 队列实现栈 {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-
-            //如果q为空，help不为空，将help中元素依次放入q，并返回
-            if (q.isEmpty()) {
-                while (help.size() > 1) {
+            } else {
+                //如果q为空，help不为空，将help中元素依次放入q，并返回
+                if (q.isEmpty()) {
+                    dao(help, q);
+                    res = help.peek();
+                    //将最后一个数还原队尾
                     q.add(help.poll());
                 }
-                res = help.peek();
-                q.add(help.poll());
-            }
 
-            //如果help为空，q不为空，将q中元素依次放入help，并返回
-            if (help.isEmpty()) {
-                while (q.size() > 1) {
+                //如果help为空，q不为空，将q中元素依次放入help，并返回
+                if (help.isEmpty()) {
+                    dao(q, help);
+                    res = q.peek();
+                    //将最后一个数还原队尾
                     help.add(q.poll());
                 }
-                res = q.peek();
-                help.add(q.poll());
             }
             return res;
+        }
+
+        /**
+         * q队列倒入help队列
+         *
+         * @param q    非空队列
+         * @param help 空队列
+         */
+        private void dao(Queue<Integer> q, Queue<Integer> help) {
+            while (q.size() > 1) {
+                help.add(q.poll());
+            }
         }
 
 
