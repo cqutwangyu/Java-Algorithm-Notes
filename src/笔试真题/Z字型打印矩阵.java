@@ -31,15 +31,30 @@ public class Z字型打印矩阵 {
         boolean fromUp = false;
         while (tR != endR + 1) {
             printLevel(arrs, tR, tC, dR, dC, fromUp);
+            //当上面的点移动到最后一列时，向下移动，否则行号不动。↓
             tR = tC == endC ? tR + 1 : tR;
+            //当上面的点移动到最后一列时，列号不动，否则向右移动。→
             tC = tC == endC ? tC : tC + 1;
+            //当下面的点移动到最后一行时，列号向右移动，否则不动。→
             dC = dR == endR ? dC + 1 : dC;
+            //当下面的点移动到最后一行时，行号不动，否则向下移动↓
             dR = dR == endR ? dR : dR + 1;
+            //每次打印完之后调整方向
             fromUp = !fromUp;
         }
 
     }
 
+    /**
+     * 每次打印一条水平线，t和b分别代表水平线上面的点和下面的点，
+     *
+     * @param arrs
+     * @param tR
+     * @param tC
+     * @param dR
+     * @param dC
+     * @param fromUp 打印的方向，true从上往下，false从下往上
+     */
     private static void printLevel(int[][] arrs, int tR, int tC, int dR, int dC, boolean fromUp) {
         if (fromUp) {
             while (tR != dR + 1) {
