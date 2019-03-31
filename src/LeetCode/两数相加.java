@@ -66,7 +66,7 @@ public class 两数相加 {
      * @param l2
      * @return
      */
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode listNode = new ListNode(0);
         ListNode temp;
         StringBuilder sb1 = new StringBuilder();
@@ -93,7 +93,7 @@ public class 两数相加 {
     /**
      * 链表结构
      */
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
@@ -109,7 +109,7 @@ public class 两数相加 {
      * @param l2
      * @return
      */
-    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+    private ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
         //临时链表
         ListNode temp = new ListNode(0);
         //最终返回的链表

@@ -39,7 +39,7 @@ public class 奇特的栈 {
         }
     }
 
-    static class Node {
+    private static class Node {
         List<Integer> list = new ArrayList<>();
 
         //1、push v 表示把v元素压入栈中。

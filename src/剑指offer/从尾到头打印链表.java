@@ -25,7 +25,7 @@ public class 从尾到头打印链表 {
         System.out.println(integers.toString());
     }
 
-    public static class Solution {
+    private static class Solution {
         ArrayList<Integer> list = new ArrayList<>();
 
         public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
@@ -38,7 +38,7 @@ public class 从尾到头打印链表 {
         }
     }
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
