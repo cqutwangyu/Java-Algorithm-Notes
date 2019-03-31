@@ -14,7 +14,6 @@ public class 判断链表是否为回文 {
         int[] arr = {1, 2, 3, 3, 2, 1};
         Node root = createList(arr);
         System.out.println(isPalindrome1(root));
-
     }
 
     /**
