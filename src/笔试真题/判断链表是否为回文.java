@@ -12,28 +12,28 @@ import java.util.Stack;
 public class 判断链表是否为回文 {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 3, 2, 1};
-        Node root = createList(arr);
-        System.out.println(isPalindrome1(root));
+        Node head = createList(arr);
+        System.out.println(isPalindrome1(head));
     }
 
     /**
      * 压栈法
      * 时间复杂度O(n) 空间复杂度O(n)
      */
-    private static boolean isPalindrome1(Node root) {
+    private static boolean isPalindrome1(Node head) {
         Stack<Integer> stack = new Stack<>();
-        Node car = root;
+        Node car = head;
         //压栈
         while (car != null) {
             stack.push(car.value);
             car = car.next;
         }
         //比较
-        while (root != null) {
-            if (root.value != stack.pop()) {
+        while (head != null) {
+            if (head.value != stack.pop()) {
                 return false;
             }
-            root = root.next;
+            head = head.next;
         }
         return true;
     }
@@ -42,12 +42,12 @@ public class 判断链表是否为回文 {
      * 折半压栈法
      * 空间复杂度O(n/2)
      */
-    private static boolean isPalindrome2(Node root) {
-        if (root == null || root.next == null) {
+    private static boolean isPalindrome2(Node head) {
+        if (head == null || head.next == null) {
             return true;
         }
-        Node right = root.next;
-        Node cur = root;
+        Node right = head.next;
+        Node cur = head;
         //当cur走完，right走到一半
         while (cur.next != null && cur.next.next != null) {
             right = right.next;
@@ -61,10 +61,10 @@ public class 判断链表是否为回文 {
         }
         //比较
         while (!stack.isEmpty()) {
-            if (root.value != stack.pop()) {
+            if (head.value != stack.pop()) {
                 return false;
             }
-            root = root.next;
+            head = head.next;
         }
         return true;
     }
@@ -73,13 +73,13 @@ public class 判断链表是否为回文 {
      * 改变指针法 1(n2)->2->3<-2<-1(n1) 对n2和n1进行比对，最后还原指针
      * 时间复杂度O(1) 空间复杂度O(1)
      */
-    private static boolean isPalindrome3(Node root) {
-        if (root == null || root.next == null) {
+    private static boolean isPalindrome3(Node head) {
+        if (head == null || head.next == null) {
             return true;
         }
         //两个指针
-        Node n1 = root;
-        Node n2 = root;
+        Node n1 = head;
+        Node n2 = head;
         //n1每次走一步，n2每次走两步。当n2走完，n1刚好走到mid
         while (n2.next != null && n2.next.next != null) {
             //n1->mid
@@ -108,7 +108,7 @@ public class 判断链表是否为回文 {
         //保存最后一个节点
         n3 = n1;
         //指向根节点
-        n2 = root;
+        n2 = head;
         boolean res = true;
         //检查回文
         //n1为最后一个节点，n2为第一个节点
