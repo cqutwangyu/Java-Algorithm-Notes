@@ -1,4 +1,4 @@
-package AlgorithmBased;
+package 笔试真题;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,15 +6,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @ClassName 荷兰国旗问题
+ * @ClassName 数组的荷兰国旗问题
  * @Description 左程云
  * @Author ChongqingWangYu
  * @DateTime 2019/3/22 15:38
  * @GitHub https://github.com/ChongqingWangYu
  */
-public class 荷兰国旗问题 {
+public class 数组的荷兰国旗问题 {
     /**
-     * 荷兰国旗问题
+     * 数组的荷兰国旗问题
      * 快速排序入口
      */
     public static void quickSort(int[] arr) {
@@ -26,7 +26,7 @@ public class 荷兰国旗问题 {
 
     /**
      * 快速排序递归处理
-     * 荷兰国旗问题 { 左边：< num  中间：==num  右边：> num }
+     * 数组的荷兰国旗问题 { 左边：< num  中间：==num  右边：> num }
      *
      * @param arr
      * @param left
