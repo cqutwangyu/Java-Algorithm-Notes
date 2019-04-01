@@ -152,13 +152,13 @@ public class 判断链表是否为回文 {
         if (arr.length == 0) {
             return null;
         }
-        Node root = new Node(arr[0]);
-        Node temp = root;
+        Node head = new Node(arr[0]);
+        Node temp = head;
         for (int i = 1; i < arr.length; i++) {
             temp.next = new Node(arr[i]);
             temp = temp.next;
         }
-        return root;
+        return head;
     }
 
     /**
