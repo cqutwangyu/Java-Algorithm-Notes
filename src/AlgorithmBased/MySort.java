@@ -264,9 +264,19 @@ public class MySort {
     /**
      * 交换两个数
      */
-    private static void swap(int[] arr, int i, int j) {
+    public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    /**
+     * 交换两个对象
+     */
+    public static void swap(Object[] arr, int i, int j) {
+        Object temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
 }
