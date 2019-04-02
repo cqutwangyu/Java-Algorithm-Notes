@@ -1,3 +1,7 @@
 # 算法习题库
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
+*****
+
+持续更新本人学习算法过程中遇见的各类算法题及解法，包含详细注释。
