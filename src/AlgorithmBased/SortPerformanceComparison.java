@@ -12,6 +12,9 @@ import java.util.Arrays;
  * @GitHub https://github.com/ChongqingWangYu
  */
 public class SortPerformanceComparison {
+    /**
+     * 排序性能比较
+     */
     public static void main(String[] args) {
         String[] strs = {"Arrays.sort", "mergerSort", "heapSrot", "quickSort", "selectionSort", "insertSort", "bubbleSort"};
         int testTime = 100;
