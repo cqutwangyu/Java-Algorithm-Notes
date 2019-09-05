@@ -14,6 +14,29 @@ public class 二维数组中的查找 {
         int target = 13;
         System.out.println(solution.Find(target, array));
     }
+    /**
+     * 解题思路：根据题意每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增
+     *      得出矩阵中的数字左边小，下边大。从右上角开始寻找，目标数小于当前数则左移，大于当前数则下移。
+     */
+    public boolean Find(int target, int [][] array) {
+        if(array==null||array.length==0||array[0].length==0)
+        {
+            return false;
+        }
+        int rows=array.length,cols=array[0].length;
+        int r=0,c=cols-1;
+        while(r <= rows-1 && c >= 0){
+            if(target==array[r][c]){
+                return true;
+            }
+            if(target<array[r][c]){
+                c--;
+            }else{
+                r++;
+            }
+        }
+        return false;
+    }
 
     public static class Solution {
         public boolean Find(int target, int[][] array) {
